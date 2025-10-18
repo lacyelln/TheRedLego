@@ -6,7 +6,7 @@ function CreatePosts(postsArray, navigate, isAcademic, prev_location) {
     for (let i = 0; i < Object.keys(postsArray).length; i++) {
         const postJson = postsArray[i];
         console.log(`${i}: ${JSON.stringify(postJson)}`);
-        if (Boolean(postJson.academic) != isAcademic) {
+        if (postJson.academic.toString() != isAcademic.toString()) {
             console.log(`${postJson.academic} vs ${isAcademic}`)
             console.log(i);
             continue;
