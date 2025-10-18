@@ -2,22 +2,32 @@ import express from 'express';
 import Event from 'event';
 import DataAccess from 'database.js';
 import { socialEvents, academicEvents, socialEvents } from './ai';
+import Event from './Event.js';
+import DataAccess from './database.js';
+import dummyData from './dummyData.json' with {type: "json"};
+import cors from 'cors';
+
+var curID = 1;
 
 const app = express();
 const dataAccess = new DataAccess();
 
-const API_BASE = "http://localhost:3000";
-const port = 3000;
+const API_BASE = "http://localhost:4000";
 
+const port = 4000;
+  
 app.use(express.json());
+app.use(cors());
 app.use(express.static("public"));
+
 
 initalize();
 
 var apiRouter = express.Router();
 app.use('/api', apiRouter);
 
-apiRouter.get('/event/:id', async (req, res) => {
+
+apiRouter.get('/:id', async (req, res) => {
     let id = req.params.id;
     if (!id) {
         res.status(404).send({message: "That event does not exist"});
@@ -27,7 +37,8 @@ apiRouter.get('/event/:id', async (req, res) => {
     res.send(JSON.stringify(eventObj));
 });
 
-apiRouter.get('/event/list', async (req, res) => {
+apiRouter.get('/list', async (req, res) => {
+    console.log("received request");
     let eventArr = dataAccess.getAllEvents();
     if (eventArr.length === 0) {
         res.status(404).send({message: "events not found"});

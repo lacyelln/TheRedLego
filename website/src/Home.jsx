@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './App.css';
 import { createPosts } from "./createPosts.jsx";
 
 function Home() {
-    const [posts, getPosts] = React.useState("hiu");
+    const navigate = useNavigate();
+    const [posts, getPosts] = React.useState(null);
     React.useEffect(() => {
-        fetch("/api/event/list")
+        fetch("/api/list")
         .then((response) => response.json())
         .then((postList) => {
-            getPosts(createPosts(postList));
+            console.log(JSON.stringify(postList));
+            getPosts(createPosts(postList, navigate));
         })
     }, []);
+
     return (
     <>
         <div id="header">
         <h1>Welcome to our Website!</h1>
       </div>
-      <div id="posts">
+      {/* <div id="posts">
         <div className="post">
           <div className="image"></div>
           <div className="postTitleContainer"><h2 className="postTitleText">BYU Redo Hackathon this weekend!</h2></div>
@@ -37,6 +41,9 @@ function Home() {
           <div className="image"></div>
           <div className="postTitleContainer"><h2 className="postTitleText">Tyler surprise bday party!</h2></div>
         </div>
+      </div> */}
+      <div id="posts">
+        {posts}
       </div>
       <div id="navbar">
         <div className="flex">
