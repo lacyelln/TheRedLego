@@ -73,8 +73,6 @@ function OpenPost() {
             value={rsvp} 
             onChange={(e) => setRsvp(e.target.value)}
             onKeyDown={handleKeyDown(rsvp)}
-            placeholder="Enter your name"
-            onKeyDown={handleKeyDown}
             placeholder="Do you want to RSVP?"
             required
             />
