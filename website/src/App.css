@@ -342,7 +342,7 @@ input {
 
 }
 
-button {
+#submitButton {
   margin-top: 30px;
   width: 200px;
   height: 40px;
@@ -361,7 +361,4 @@ button:hover {
 #checkboxes {
   position: relative;
   left: 130px;
-}
-label {
-
 }

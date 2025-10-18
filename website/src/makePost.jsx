@@ -47,7 +47,7 @@ export function MakePost() {
                             <label>Academic<input name="postType" type="radio" value={true} onChange={(e) => setEventAcademic(e.target.value)}/></label>
                             <label>Social<input name="postType" type="radio" value={false} onChange={(e) => setEventAcademic(e.target.value)}/></label>
                         </div>
-                        <div id="submitWrapper"><button type="submit">CREATE EVENT</button></div>
+                        <div id="submitWrapper"><button id="createButton" type="submit">CREATE EVENT</button></div>
                     </form>
                 </div>
             </div>
