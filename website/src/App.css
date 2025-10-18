@@ -1,0 +1,108 @@
+/* === BYU Theme: App.css === */
+
+/* === Color Palette === */
+:root {
+  --byu-blue: #002e5d;
+  --byu-white: #ffffff;
+  --byu-blue-light: #004a8f;
+  --text-dark: #1a1a1a;
+}
+
+/* === Reset & Base Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Background Image Styling === */
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background: url('/images/background.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--byu-white);
+  line-height: 1.6;
+  padding: 2rem;
+  height: 100vh;
+}
+
+/* .overlay {
+  background-color: rgba(255, 255, 255, 0.55); /* Light white overlay */
+  /* padding: 2rem;
+  min-height: 50vh;
+} */ */
+
+
+
+/* === Header (Welcome Section) === */
+#header {
+  
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+#header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--byu-white);  
+}
+
+#header p {
+  font-size: 1.1rem;
+  color: var(--byu-white);
+  padding: 0 1rem;
+  font-weight: 500;
+}
+
+/* === Navbar Buttons === */
+#navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.flex {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* === Button Styling === */
+.navButton {
+  background-color: var(--byu-blue);
+  color: var(--byu-white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: var(--byu-blue-light);
+}
+
+/* === Hide Posts if not needed === */
+#posts {
+  display: none; /* Hide the posts section for now */
+}
+
+.banner {
+  background-color: var(--byu-blue);
+  color: var(--byu-white);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.banner h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: var(--byu-white);  
+}
