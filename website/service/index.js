@@ -10,7 +10,7 @@ var curID = 1;
 const app = express();
 const dataAccess = new DataAccess();
 
-const API_BASE = "http://localhost:4000";
+
 
 const port = 4000;
   
@@ -125,5 +125,27 @@ function initalize() {
 
 const httpService = app.listen(port, () => {
     console.log(`Listening on port ${port}`);
+});
+
+router.post('/academic-response', async (req, res) => {
+  const { events, userInfo } = req.body;
+  try {
+    const result = await academicEvents(events, userInfo);
+    res.json(result);
+  } catch (error) {
+    console.error("Error getting academic event:", error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+router.post('/social-response', async (req, res) => {
+  const { events, userInfo } = req.body;
+  try {
+    const result = await socialEvents(events, userInfo);
+    res.json(result);
+  } catch (error) {
+    console.error("Error getting social event:", error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
