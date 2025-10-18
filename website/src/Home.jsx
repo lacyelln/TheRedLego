@@ -17,41 +17,41 @@ function Home() {
 
     return (
     <>
-        <div id="header">
-        <h1>Welcome to our Website!</h1>
+    <div className='overlay'>
+      <div id="header">
+        <div className='banner'>
+        <h1>Welcome to BYU!</h1>
+        </div>
+        <p>Congratulations and welcome to Brigham Young University — 
+          a place where faith, intellect, and friendship come together 
+          in a unique and powerful way. As a new Cougar, you’re now 
+          part of a vibrant community committed to lifelong learning, 
+          service, and becoming your best self. Your time here will be 
+          filled with discovery — both academic and personal — as you build 
+          meaningful relationships, grow spiritually, and pursue excellence 
+          in everything you do. We’re excited to see how you’ll contribute your 
+          talents, your voice, and your light to the BYU family. This is just 
+          the beginning of something incredible. This webpage is designed to help you
+          in both your academic and social endeavors, feel free to look around and
+          welcome home.</p>
       </div>
-      {/* <div id="posts">
-        <div className="post">
-          <div className="image"></div>
-          <div className="postTitleContainer"><h2 className="postTitleText">BYU Redo Hackathon this weekend!</h2></div>
+       
+
+      <div id="navbar">
+        <div className="flex">
+          {/* <button onClick={() => navigate('/post')} className="navButton">POST</button> */}
+          <button onClick={() => navigate('/social')} className="navButton">SOCIAL</button>
+          <button onClick={() => navigate('/academic')} className="navButton">ACADEMIC</button>
         </div>
-        <div className="post">
-          <div className="image"></div>
-          <div className="postTitleContainer"><h2 className="postTitleText">Halloween Party in TMCB 1999</h2></div>
-        </div>
-        <div className="post">
-          <div className="image"></div>
-          <div className="postTitleContainer"><h2 className="postTitleText">Volleyball game @6pm</h2></div>
-        </div>
-        <div className="post">
-          <div className="image"></div>
-          <div className="postTitleContainer"><h2 className="postTitleText">Homecoming Dance tonite!</h2></div>
-        </div>
-        <div className="post">
-          <div className="image"></div>
-          <div className="postTitleContainer"><h2 className="postTitleText">Tyler surprise bday party!</h2></div>
-        </div>
-      </div> */}
+      </div>
+      </div>
+     
+
       <div id="posts">
         {posts}
       </div>
-      <div id="navbar">
-        <div className="flex">
-          <div id="postButton"><p>POST</p></div>
-        </div>
-      </div>
     </>
-    )
+  );
 }
 
 export default Home
