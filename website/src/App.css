@@ -310,7 +310,21 @@ body {
 }
 
 /* RSVP List styling */
+
+.rsvp-list {
+  max-height: 150px;
+  overflow: scroll; /* or scroll if you prefer */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge Legacy */
+}
+
+#rsvpTitle {
+  position: fixed;
+  margin-bottom: 50px;
+}
+
 .rsvp-list ul {
+  display: inline-block;
   margin: 0.5rem 0 1rem 1rem;
   padding-left: 1rem;
   list-style-type: disc;
