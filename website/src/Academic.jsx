@@ -81,7 +81,7 @@ export default function Academic() {
         <div className="flex">
            <p>There are currently {numPosts} events posted!</p>
           <button onClick={() => navigate('/post')} className="navButton">MAKE A POST</button>
-          <button onClick={() => navigate('/social')} className="navButton">SOCIAL</button>
+          <button onClick={() => navigate('/social')} className="navButton">SOCIAL EVENTS</button>
         </div>
         </div>
 

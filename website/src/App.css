@@ -44,7 +44,7 @@ body {
 
 /* === Header (Welcome Section) === */
 #header {
-  
+  height: 50vh;
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
@@ -57,7 +57,7 @@ body {
 
 #header h1 {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
   color: var(--byu-white);  
 }
 
@@ -67,8 +67,13 @@ body {
   padding: 0 1rem;
   font-weight: 500;
   text-align: center;
-  width: 75%;
+  width: 80%;
 }
+
+.body {
+  margin-top: 20vh; /* Pushes it halfway down the viewport */
+}
+
 
 /* === Navbar Buttons === */
 #navbar {

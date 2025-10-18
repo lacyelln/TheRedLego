@@ -8,7 +8,7 @@ function Home() {
 
     return (
     <>
-    <div >
+    <div className="body">
       <div id="header">
         <div className='banner'>
         <h1>Welcome to BYU!</h1>
@@ -33,10 +33,6 @@ function Home() {
       </div>
       </div>
      
-
-      {/* <div id="posts">
-        {posts}
-      </div> */}
     </>
   );
 }

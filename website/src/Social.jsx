@@ -77,7 +77,7 @@ export default function Social () {
         <div className="flex">
           <p>There are currently {numPosts} events posted!</p>
           <button onClick={() => navigate('/post')} className="navButton">MAKE A POST</button>
-          <button onClick={() => navigate('/academic')} className="navButton">ACADEMIC</button>
+          <button onClick={() => navigate('/academic')} className="navButton">ACADEMIC EVENTS</button>
         </div>
         </div>
 
