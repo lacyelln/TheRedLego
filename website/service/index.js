@@ -25,7 +25,15 @@ apiRouter.get('/event/:id', async (req, res) => {
 
 apiRouter.get('/event/list', async (req, res) => {
     let eventArr = dataAccess.getAllEvents();
-    
+    if (eventArr.length === 0) {
+        res.status(404).send({message: "events not found"});
+        return;
+    }
+
+});
+
+apiRouter.get('/event/names', async (req, res) => {
+    let eventNames = dataAccess.getEventNames();
 });
 
 apiRouter.post('/event/create', async (req, res) => {

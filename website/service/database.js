@@ -27,7 +27,7 @@ class DataAccess {
     }
 
     updateEventRSVP(eventID, newRSVP) {
-        item = this.eventMap.get(eventID);
+        let item = this.eventMap.get(eventID);
         if (!item) {
             return null;
         }
@@ -37,7 +37,7 @@ class DataAccess {
     }
 
     updateEventComment(eventID, newComment) {
-        item = this.eventMap.get(eventID);
+        let item = this.eventMap.get(eventID);
         if (!item) {
             return null;
         }
@@ -47,19 +47,25 @@ class DataAccess {
     }
 
     getAllEvents() {
-        eventArr = [];
+        let eventArr = [];
         this.eventMap.forEach((value, key) => eventArr.push(value));
         return eventArr;
     }
 
     getSomeEvents(eventIDs) {
-        eventArr = [];
+        let eventArr = [];
         for (let i = 0; i < eventIDs.length; i++) {
             item = this.getEvent(eventIDs[i]);
             if (item) {
                 eventArr.push(item);
             }
         }
+        return eventArr;
+    }
+
+    getEventNames() {
+        let eventArr = [];
+        this.eventMap.forEach((value, key) => eventArr.push({eventID: value.eventID, name: value.name}))
         return eventArr;
     }
 }
