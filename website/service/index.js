@@ -1,5 +1,5 @@
 import express from 'express';
-import Event from 'event';
+import Event from 'Event.js';
 import DataAccess from 'database.js';
 
 var curID = 1;
