@@ -70,7 +70,8 @@ Return ONLY a valid JSON object in this format:
 
      User preferences: ${userNeeds}
 Select the single best matching event for their needs and explain briefly why as if you were talking to the person.
-Return the event selected and then the other json objects (do not change them) that you did NOT select in relevance order to the needs in ONE JSON object — no extra text.
+Return the event selected and then the other json objects that you did NOT select in relevance order to the needs in ONE JSON object — no extra text. DO not change anything
+in the other events and only add them once.
 Format it with a selectedEvent and otherEvents part of the JSON object`
     });
 
