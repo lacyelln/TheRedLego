@@ -9,39 +9,58 @@ function OpenPost() {
     const [showRSVP, setShowRSVP] = useState("");
     const [ rsvp, setRsvp ] = useState("");
     const [myRsvp, setMyRsvp] = React.useState(eventData.rsvp);
+    const [myName, setMyName] = React.useState(eventData.name);
+    const [myDescription, setMyDescription] = React.useState(eventData.description);
+    const [myDate, setMyDate] = React.useState(eventData.date);
+    const [myTime, setMyTime] = React.useState(eventData.time);
     // console.log(`eventData = ${JSON.stringify(eventData)}`);
     const navigate = useNavigate();
+
+    React.useEffect(() => {
+      fetch(`/api/event/${eventData.eventID}`)
+      .then((response) => response.json())
+      .then((data) => updateAllData(data))
+      .catch();
+    }, [])
+
+    function updateAllData(data) {
+      setMyRsvp(data.rsvp);
+      setMyName(data.name);
+      setMyDescription(data.description);
+      setMyDate(data.date);
+      setMyTime(data.time);
+    }
     
-  async function handleClick(){
-    fetch("/api/event/rsvp", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({eventID: eventData.eventID ,person: rsvp})
-    })
-    .then((response) => response.json())
-    .then((data) => setMyRsvp(data.rsvp))
-    .catch();
-    setRsvp("");
-    // window.location.reload();
-  };
+    async function handleClick(){
+      fetch("/api/event/rsvp", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({eventID: eventData.eventID ,person: rsvp})
+      })
+      .then((response) => response.json())
+      .then((data) => updateAllData(data))
+      .catch();
+      setRsvp("");
+      // window.location.reload();
+    };
 
     return (
         <>
         <div className="open-post-details">
       {/* Toggle button in top-right */}
       <div className="rsvp-header">
-        <h2>{eventData.name}</h2>
+        <h2>{myName}</h2>
        
         <button onClick={() => setShowRSVP(!showRSVP)} className="rsvp-toggle">
           {showRSVP ? "Hide RSVP List" : "Show RSVP List"}
         </button>
       </div>
        <h3>Event Details</h3>
-       <p>{eventData.description}</p>
-      <p><strong>Date:</strong> {eventData.date}</p>
-      <p><strong>Time:</strong> {eventData.time}</p>
+       <p>{myDescription}</p>
+      <p><strong>Date:</strong> {myDate}</p>
+      <p><strong>Time:</strong> {myTime}</p>
 
 
       {/* RSVP list toggle */}
