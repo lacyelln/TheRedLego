@@ -9,6 +9,7 @@ function OpenPost() {
     const [showRSVP, setShowRSVP] = useState("");
     const [ rsvp, setRsvp ] = useState("");
     console.log(`eventData = ${eventData}`);
+    console.log(`eventData = ${JSON.stringify(eventData)}`);
     const navigate = useNavigate();
     
   async function handleClick(rsvp){
