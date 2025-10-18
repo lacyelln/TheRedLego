@@ -22,6 +22,7 @@ function OpenPost() {
         </button>
       </div>
        <h3>Event Details</h3>
+       <p>{eventData.description}</p>
       <p><strong>Date:</strong> {eventData.date}</p>
       <p><strong>Time:</strong> {eventData.time}</p>
 
