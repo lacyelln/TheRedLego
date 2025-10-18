@@ -26,12 +26,18 @@ body {
   height: 100vh;
 }
 
-/* .overlay {
-  background-color: rgba(255, 255, 255, 0.55); /* Light white overlay */
-  /* padding: 2rem;
-  min-height: 50vh;
-} */ */
-
+.overlay {
+  background-color: var(--byu-blue); 
+  height: 350px;  /* full viewport height */
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* vertically center content */
+  align-items: center;      /* horizontally center content */
+  padding: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+}
 
 
 /* === Header (Welcome Section) === */
@@ -41,6 +47,10 @@ body {
   margin: 0 auto;
   text-align: center;
   padding-bottom: 3rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
 }
 
 #header h1 {
@@ -54,6 +64,8 @@ body {
   color: var(--byu-white);
   padding: 0 1rem;
   font-weight: 500;
+  text-align: center;
+  width: 75%;
 }
 
 /* === Navbar Buttons === */
@@ -98,7 +110,12 @@ body {
   padding: 1.5rem 1rem;
   text-align: center;
   border-radius: 6px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 5rem;
+
+  width: 90%;       /* Makes it 90% of its container’s width */
+  max-width: 1000px; /* Optional: cap max width */
+  margin-left: auto;
+  margin-right: auto; /* centers it horizontally */
 }
 
 .banner h1 {
