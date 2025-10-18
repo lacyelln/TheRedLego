@@ -5,15 +5,6 @@ import CreatePosts from "./createPosts.jsx";
 
 function Home() {
     const navigate = useNavigate();
-    const [posts, getPosts] = React.useState(null);
-    React.useEffect(() => {
-        fetch("/api/list")
-        .then((response) => response.json())
-        .then((postList) => {
-            console.log(JSON.stringify(postList));
-            getPosts(CreatePosts(postList, navigate));
-        })
-    }, []);
 
     return (
     <>

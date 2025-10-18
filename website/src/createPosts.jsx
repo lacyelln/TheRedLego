@@ -1,10 +1,13 @@
 import React from 'react';
 import OpenPost from "./openPost.jsx"
 
-function CreatePosts(postsArray, navigate) {
+function CreatePosts(postsArray, navigate, isAcademic) {
     const postList = []
     for (let i = 0; i < Object.keys(postsArray).length; i++) {
         const postJson = postsArray[i];
+        if (postJson.academic != isAcademic) {
+            continue;
+        }
         console.log(postJson);
         postList.push(
             <div className="post">
