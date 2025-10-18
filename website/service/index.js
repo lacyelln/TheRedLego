@@ -3,6 +3,7 @@ import Event from 'event';
 import DataAccess from 'database.js';
 
 const app = express();
+const dataAccess = new DataAccess();
 
 const port = 3000;
 
@@ -12,12 +13,19 @@ app.use(express.static("public"));
 var apiRouter = express.Router();
 app.use('/api', apiRouter);
 
-apiRouter.get('/event/list', async (req, res) => {
-    // return the list of events
+apiRouter.get('/event/:id', async (req, res) => {
+    let id = req.params.id;
+    if (!id) {
+        res.status(404).send({message: "That event does not exist"});
+        return;
+    }
+    let eventObj = dataAccess.getEvent(id);
+    res.send(JSON.stringify(eventObj));
 });
 
-apiRouter.get('/event/get', async (req, res) => {
-    // return a single event object
+apiRouter.get('/event/list', async (req, res) => {
+    let eventArr = dataAccess.getAllEvents();
+    
 });
 
 apiRouter.post('/event/create', async (req, res) => {
