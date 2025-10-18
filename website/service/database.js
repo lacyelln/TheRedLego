@@ -11,12 +11,8 @@ class DataAccess {
         }
     }
 
-    deleteEvent(event, eventID=null) {
-        if (!eventID) {
-            this.eventMap.delete(event.eventID);
-        } else {
-            this.eventMap.delete(eventID);
-        }
+    deleteEvent(eventID) {
+        this.eventMap.delete(eventID);
     }
 
     getEvent(eventID) {
