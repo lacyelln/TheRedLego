@@ -8,11 +8,12 @@ function Home() {
 
     return (
     <>
-    <div className='overlay'>
+    <div >
       <div id="header">
         <div className='banner'>
         <h1>Welcome to BYU!</h1>
         </div>
+        <div className='overlay'>
         <p>Congratulations and welcome to Brigham Young University — 
           a place where faith, intellect, and friendship come together 
           in a unique and powerful way. As a new Cougar, you’re now 
@@ -25,7 +26,9 @@ function Home() {
           the beginning of something incredible. This webpage is designed to help you
           in both your academic and social endeavors, feel free to look around and
           welcome home.</p>
+          </div>
       </div>
+      
        
 
       <div id="navbar">
@@ -38,9 +41,9 @@ function Home() {
       </div>
      
 
-      <div id="posts">
+      {/* <div id="posts">
         {posts}
-      </div>
+      </div> */}
     </>
   );
 }
