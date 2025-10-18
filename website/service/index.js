@@ -46,9 +46,18 @@ apiRouter.get('/event/names', async (req, res) => {
 
 apiRouter.put('/event/rsvp', async (req, res) => {
     let eventID = req.body?.eventID;
-    let Event = dataAccess.getEvent(eventID);
     let person = req.body?.person;
-    Event.rsvp.push(person);
+    let result = dataAccess.updateEventRSVP(eventID, person);
+    if (!result) {
+        res.status(404).send({message: "event ID not valid"});
+        return;
+    }
+    let eventResult = dataAccess.getEvent(eventID);
+    if (!eventResult) {
+        res.status(404).send({message: "event not found"});
+        return;
+    }
+    res.send(JSON.stringify(eventResult));
 });
 
 apiRouter.post('/event/create', async (req, res) => {

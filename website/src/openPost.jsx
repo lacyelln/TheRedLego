@@ -5,13 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 function OpenPost() {
     const location = useLocation();
-    const { eventData, prev_location } = location.state || {} // what is || {}?
+    let { eventData, prev_location } = location.state || {} // what is || {}?
     const [showRSVP, setShowRSVP] = useState("");
     const [ rsvp, setRsvp ] = useState("");
+    const [myRsvp, setMyRsvp] = React.useState(eventData.rsvp);
     // console.log(`eventData = ${JSON.stringify(eventData)}`);
     const navigate = useNavigate();
     
-  async function handleClick(rsvp){
+  async function handleClick(){
     fetch("/api/event/rsvp", {
       method: "PUT",
       headers: {
@@ -19,6 +20,11 @@ function OpenPost() {
       },
       body: JSON.stringify({eventID: eventData.eventID ,person: rsvp})
     })
+    .then((response) => response.json())
+    .then((data) => setMyRsvp(data.rsvp))
+    .catch();
+    setRsvp("");
+    // window.location.reload();
   };
 
     return (
@@ -43,15 +49,15 @@ function OpenPost() {
         <div className="rsvp-list">
           <strong>RSVP:</strong>
           <ul>
-            {eventData.rsvp && eventData.rsvp.length > 0 ? (
-              eventData.rsvp.map((name, idx) => <li key={idx}>{name}</li>)
+            {myRsvp && myRsvp.length > 0 ? (
+              myRsvp.map((name, idx) => <li key={idx}>{name}</li>)
             ) : (
               <li>No RSVPs yet</li>
             )}
           </ul>
         </div>
       ) : (
-        <p><strong>RSVP:</strong> {eventData.rsvp?.length || 0} attending</p>
+        <p><strong>RSVP:</strong> {myRsvp?.length || 0} attending</p>
       )}
       
       <div className="rsvp">
@@ -63,9 +69,8 @@ function OpenPost() {
             placeholder="Do you want to RSVP?"
             required
             />
-            <button className="rsvp-submit" onClick={handleClick(rsvp)}>RSVP</button>
+            <button className="rsvp-submit" onClick={() => handleClick()}>RSVP</button>
       </div>
-            <button onClick={handleClick}></button>
       </div>
       <div className="return-box">
         <button onClick={() => navigate(prev_location.pathname)} className="navButton">RETURN</button>
