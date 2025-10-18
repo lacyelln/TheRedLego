@@ -34,7 +34,7 @@ apiRouter.get('/event/list', async (req, res) => {
         res.status(404).send({message: "events not found"});
         return;
     }
-    let prunedEvents;
+    let prunedEvents = [];
     eventArr.forEach((value) => prunedEvents.push({eventID: value.eventID, name: value.name, poster: value.poster, date: value.date, time: value.time}));
     res.send(JSON.stringify(prunedEvents));
 });
