@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import { createPosts } from "./createPosts.jsx";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from "./Home.jsx"
-import openPost from "./openPost.jsx"
+import OpenPost from "./openPost.jsx"
 
 function App() {
 
@@ -12,11 +11,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} exact></Route>
-          <Route path="/post" element={<openPost />} exact></Route>
+          <Route path="/post" element={<OpenPost />} exact></Route>
         </Routes>
       </BrowserRouter>
     </>
   )
 }
 
-export default App
+export default App;

@@ -25,7 +25,7 @@ var apiRouter = express.Router();
 app.use('/api', apiRouter);
 
 
-apiRouter.get('/:id', async (req, res) => {
+apiRouter.get('/event/:id', async (req, res) => {
     let id = req.params.id;
     if (!id) {
         res.status(404).send({message: "That event does not exist"});

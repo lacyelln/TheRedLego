@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
-import { createPosts } from "./createPosts.jsx";
+import CreatePosts from "./createPosts.jsx";
 
 function Home() {
     const navigate = useNavigate();
@@ -11,7 +11,7 @@ function Home() {
         .then((response) => response.json())
         .then((postList) => {
             console.log(JSON.stringify(postList));
-            getPosts(createPosts(postList, navigate));
+            getPosts(CreatePosts(postList, navigate));
         })
     }, []);
 

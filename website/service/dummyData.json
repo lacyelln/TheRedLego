@@ -9,27 +9,5 @@
         "academic": false,
         "rsvp": ["Lacy", "Jack"],
         "comments": ["Can't wait!"]
-    },
-    {
-        "eventID": 2,
-        "name": "Tyler's surprise party",
-        "description": "It's a surprise party!",
-        "poster": "Jack",
-        "date": "July 67th",
-        "time": "13 Oclock",
-        "academic": false,
-        "rsvp": ["Lacy", "Jack"],
-        "comments": ["Can't wait!"]
-    },
-    {
-        "eventID": 3,
-        "name": "Tyler's surprise party",
-        "description": "It's a surprise party!",
-        "poster": "Jack",
-        "date": "July 67th",
-        "time": "13 Oclock",
-        "academic": false,
-        "rsvp": ["Lacy", "Jack"],
-        "comments": ["Can't wait!"]
     }
 ]

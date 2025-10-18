@@ -1,9 +1,10 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-function openPost() {
+function OpenPost() {
     const location = useLocation();
     const {eventData } = location.state || {} // what is || {}?
+    console.log(eventData);
     
     return (
         <>
@@ -19,5 +20,5 @@ function openPost() {
     )
 }
 
-export default openPost
+export default OpenPost
 
