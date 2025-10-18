@@ -159,7 +159,7 @@ body {
 /* === Posts Container === */
 .display-posts {
   display: flex;
-  height: 500px;
+  height: 55vh;
   flex-direction: column;
   gap: 1.5rem;
   max-width: 800px;
