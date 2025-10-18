@@ -306,6 +306,9 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "BBH Sans Hegarty";
+  background-color: rgba(176, 160, 160, 0.76);
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .twoInputs {
@@ -355,3 +358,10 @@ button:hover {
   text-align: center;
 }
 
+#checkboxes {
+  position: relative;
+  left: 130px;
+}
+label {
+
+}

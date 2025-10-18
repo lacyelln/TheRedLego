@@ -6,6 +6,7 @@ export function MakePost() {
     const [eventDesc, setEventDesc] = React.useState("");
     const [eventDate, setEventDate] = React.useState("");
     const [eventTime, setEventTime] = React.useState("");
+    const [eventAcademic, setEventAcademic] = React.useState("");
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -41,6 +42,10 @@ export function MakePost() {
                         <div className="twoInputs">
                             <div className="formThing"><p className="formText">Event Date</p><input type="text" placeholder="Event Date" value={eventDate} onChange={(e) => setEventDate(e.target.value)} required /></div>
                             <div className="formThing"><p className="formText">Event Time</p><input type="text" placeholder="Event Time" value={eventTime} onChange={(e) => setEventTime(e.target.value)} required /></div>
+                        </div>
+                        <div className='twoInputs' id="checkboxes">
+                            <label>Academic<input name="postType" type="radio" value={true} onChange={(e) => setEventAcademic(e.target.value)}/></label>
+                            <label>Social<input name="postType" type="radio" value={false} onChange={(e) => setEventAcademic(e.target.value)}/></label>
                         </div>
                         <div id="submitWrapper"><button type="submit">CREATE EVENT</button></div>
                     </form>
