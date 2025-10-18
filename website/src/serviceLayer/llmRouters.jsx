@@ -3,7 +3,7 @@ const API_BASE = "http://localhost:4000";
 export async function getAcademicResponse(userInfo) {
   const eventNamesResponse = await fetch(`${API_BASE}/api/event/names`);
   const allEvents = await eventNamesResponse.json();
-    console.log("Events fetched from /event/names:", allEvents);  // ✅ log here
+    // console.log("Events fetched from /event/names:", allEvents);  // ✅ log here
 
     if (!allEvents || !allEvents.academic) {
     throw new Error("No academic events returned from API");
@@ -15,7 +15,7 @@ export async function getAcademicResponse(userInfo) {
     body: JSON.stringify({ events: allEvents.academic, userInfo: userInfo })
   });
 
-  console.log(res.body);
+  // console.log(res.body);
 
   const data = await res.json();
   return data;

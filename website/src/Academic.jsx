@@ -13,20 +13,32 @@ export default function Academic() {
         fetch("/api/list")
         .then((response) => response.json())
         .then((postList) => {
-            console.log(JSON.stringify(postList));
+            // console.log(JSON.stringify(postList));
             setPosts(CreatePosts(postList, navigate, true));
-            console.log(posts);
         })
     }, []);
+
+    React.useEffect(() => {
+        if (posts) {
+          console.log('Updated posts:', posts);
+        }
+      }, [posts]);
+      
 
     async function handleClick(userInfo){
     try {
         const result = await getAcademicResponse(userInfo);
-        console.log("result" + result);
-        console.log(JSON.stringify(result));
+        // console.log("result" + result);
+        // console.log(JSON.stringify(result));
         setUserInfo("");
-
-        
+        console.log(JSON.stringify(result));
+        const transformed = result.map(item => ({
+            eventID: item.ID,
+            name: item.Name,
+            academic: true,
+          }));
+        console.log(JSON.stringify(transformed));         
+        setPosts(CreatePosts(transformed, navigate, true));   
     } catch (error) {
       console.log(error);
     }  

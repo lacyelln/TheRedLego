@@ -2,13 +2,9 @@ import React from 'react';
 import OpenPost from "./openPost.jsx"
 
 function CreatePosts(postsArray, navigate, isAcademic) {
-    console.log("hi");
     const postList = []
     for (let i = 0; i < Object.keys(postsArray).length; i++) {
         const postJson = postsArray[i];
-        console.log("isAcademic filter:", postJson);
-
-        console.log("hi 1");
         if (postJson.academic != isAcademic) {
             continue;
         }
