@@ -42,5 +42,71 @@
         "academic": true,
         "rsvp": ["Jared", "Jonny", "Timmy"],
         "comments": ["You're a life saver!"]
+    },
+    {
+        "eventID": 5,
+        "name": "TA Calc 2 Review",
+        "description": "Held in JKB room 2001! Please come!",
+        "poster": "Calc 2 TA's",
+        "date": "Thursday 9/15",
+        "time": "7pm",
+        "academic": true,
+        "rsvp": ["Hermione", "Ron", "Harry"],
+        "comments": ["You're a life saver!"]
+    },
+    {
+        "eventID": 6,
+        "name": "Play in a pickup basketball game!",
+        "description": "We'll have a pickup game in the RB room 138!",
+        "poster": "Basketbawlers",
+        "date": "Saturday the 16th",
+        "time": "8:15pm",
+        "academic": false,
+        "rsvp": ["John", "Steve", "Alex"],
+        "comments": ["You're a life saver!"]
+    }, 
+    {
+        "eventID": 7,
+        "name": "Need a concert buddy! Conan Gray!",
+        "description": "I have 2 extra tickets to the Conan Gray concert, RSVP and I'll text you the info!",
+        "poster": "Lauren",
+        "date": "Saturday the 16th",
+        "time": "6:30pm",
+        "academic": false,
+        "rsvp": ["Taylor", "Veronica"],
+        "comments": ["You're a life saver!"]
+    }, 
+    {
+        "eventID": 8,
+        "name": "Join our intramural soccer team!",
+        "description": "We're needing 2 girls to join our co-ed soccer team! Come meet us! We're gonna practice scrimmage this weekend.",
+        "poster": "Jason",
+        "date": "Saturday 9/16",
+        "time": "1:00pm",
+        "academic": false,
+        "rsvp": ["Sarah", "Ron", "Alex"],
+        "comments": ["You're a life saver!"]
+    },
+    {
+        "eventID": 9,
+        "name": "History 202 Help",
+        "description": "I love the material for Hist 202 if any of you don't get it don't hesitate to reach out!",
+        "poster": "Lexi",
+        "date": "Whenever you want",
+        "time": "evenings are free",
+        "academic": true,
+        "rsvp": ["Taylin"],
+        "comments": ["You're a life saver!"]
+    }, 
+    {
+        "eventID": 10,
+        "name": "Chinese 101 speaking practice",
+        "description": "I'm trying to practice my chinese speaking to do better in the class, meet me in the library. I've reserved room 2036!",
+        "poster": "Owen",
+        "date": "Wednesday the 16th",
+        "time": "3:30pm",
+        "academic": true,
+        "rsvp": ["Alexa", "Sarah", "Griffin", "Dalin"],
+        "comments": ["You're a life saver!"]
     }
 ]
