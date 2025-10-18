@@ -25,17 +25,6 @@ var apiRouter = express.Router();
 app.use('/api', apiRouter);
 
 
-apiRouter.get('/event/:id', async (req, res) => {
-    let id = req.params.id;
-    if (!id) {
-        res.status(404).send({message: "That event does not exist"});
-        return;
-    }
-    console.log(`my id = ${id}`);
-    let eventObj = dataAccess.getEvent(id);
-    res.json(eventObj);
-});
-
 apiRouter.get('/list', async (req, res) => {
     let eventArr = dataAccess.getAllEvents();
     if (eventArr.length === 0) {
@@ -151,5 +140,15 @@ apiRouter.post('/social-response', async (req, res) => {
     console.error("Error getting social event:", error);
     res.status(500).json({ error: 'Internal server error' });
   }
+});
+
+apiRouter.get('/event/:id', async (req, res) => {
+    let id = req.params.id;
+    if (!id) {
+        res.status(404).send({message: "That event does not exist"});
+        return;
+    }
+    let eventObj = dataAccess.getEvent(id);
+    res.json(eventObj);
 });
 
