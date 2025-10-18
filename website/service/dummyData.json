@@ -9,5 +9,27 @@
         "academic": false,
         "rsvp": ["Lacy", "Jack"],
         "comments": ["Can't wait!"]
+    },
+    {
+        "eventID": 2,
+        "name": "Volleyball Game: Watch Party",
+        "description": "Hosting a watch party at my apartment complex, bring food! It'll be fun!",
+        "poster": "Jack",
+        "date": "October 15th",
+        "time": "2:00pm",
+        "academic": false,
+        "rsvp": ["Lacy", "Jack"],
+        "comments": ["Can't wait!"]
+    },
+    {
+        "eventID": 3,
+        "name": "Tutor for Math 290!",
+        "description": "Hi guys! I took Math 290 last semester and I LOVED it! If you need any help I know the TA's sometimes don't cover it I'd love to help out!",
+        "poster": "Lacy",
+        "date": "Friday's",
+        "time": "Available between 2-6pm",
+        "academic": true,
+        "rsvp": ["Jared"],
+        "comments": ["You're a life saver!"]
     }
 ]

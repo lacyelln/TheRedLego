@@ -43,7 +43,7 @@ apiRouter.get('/list', async (req, res) => {
         return;
     }
     let prunedEvents = [];
-    eventArr.forEach((value) => prunedEvents.push({eventID: value.eventID, name: value.name, poster: value.poster, date: value.date, time: value.time}));
+    eventArr.forEach((value) => prunedEvents.push({eventID: value.eventID, name: value.name, poster: value.poster, date: value.date, time: value.time, academic: value.academic}));
     res.send(JSON.stringify(prunedEvents));
 });
 
@@ -127,14 +127,3 @@ const httpService = app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
-export async function getSocialResponse(userInfo){
-    const response = await fetch(`${API_BASE}/event/names`);
-    const socialEvent = socialEvents(response.social, userInfo);
-    return socialEvent;
-}
-
-export async function getAcademicResponse(userInfo){
-    const response = await fetch(`${API_BASE}/event/names`);
-    const academicEvent = academicEvents(response.academic, userInfo);
-    return academicEvent;
-}
