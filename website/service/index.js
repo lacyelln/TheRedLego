@@ -32,7 +32,7 @@ apiRouter.get('/event/:id', async (req, res) => {
         return;
     }
     let eventObj = dataAccess.getEvent(id);
-    res.send(JSON.stringify(eventObj));
+    res.json(eventObj);
 });
 
 apiRouter.get('/list', async (req, res) => {

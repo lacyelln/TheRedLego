@@ -16,9 +16,11 @@ class DataAccess {
     }
 
     getEvent(eventID) {
+        console.log("testing");
         if (!this.eventMap.has(eventID)) {
             return null;
         }
+        console.log(`in server: ${this.eventMap.get(eventID)}`);
         return this.eventMap.get(eventID);
     }
 
