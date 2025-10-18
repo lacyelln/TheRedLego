@@ -62,9 +62,22 @@ function OpenPost() {
       <p><strong>Date:</strong> {myDate}</p>
       <p><strong>Time:</strong> {myTime}</p>
 
+      <div><strong>RSVP:</strong>{showRSVP ? 
+      (
+        <div className="rsvp-list">
+          <ul className="list-test">
+            {myRsvp && myRsvp.length > 0 ? (
+              myRsvp.map((name, idx) => <li key={idx}>{name}</li>)
+            ) : (
+              <li>No RSVPs yet</li>
+            )}
+          </ul>
+        </div>
+      ) : <inline> {myRsvp?.length || 0} attending</inline>}
+      </div>
 
       {/* RSVP list toggle */}
-      {showRSVP ? (
+      {/* {showRSVP ? (
         <div className="rsvp-list">
           <strong id="rsvpTitle">RSVP:</strong>
           <ul>
@@ -77,7 +90,7 @@ function OpenPost() {
         </div>
       ) : (
         <p><strong>RSVP:</strong> {myRsvp?.length || 0} attending</p>
-      )}
+      )} */}
       
       <div className="rsvp">
         <p>RSVP Here:</p>
