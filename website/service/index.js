@@ -1,6 +1,6 @@
 import express from 'express';
-import Event from 'Event.js';
-import DataAccess from 'database.js';
+import Event from './Event.js';
+import DataAccess from './database.js';
 
 var curID = 1;
 
@@ -89,3 +89,7 @@ function createEventID() {
     }
     return createEventID();
 }
+
+const httpService = app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+});
