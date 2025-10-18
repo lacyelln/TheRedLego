@@ -2,32 +2,46 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { createPosts } from "./createPosts.jsx"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [posts, getPosts] = React.useState(null);
+  React.useEffect(() => {
+    fetch("/api/event/list")
+      .then((response) => response.json())
+      .then((postList) => {
+        getPosts(createPosts(postList));
+      })
+  }, []);
+
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div id="header">
+        <h1>Welcome to our Website!</h1>
       </div>
-      <h1>test</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div id="posts">
+        <div class="post">
+          <div class="image"></div>
+          <div class="postTitleContainer"><h2 class="postTitleText">BYU Redo Hackathon this weekend!</h2></div>
+        </div>
+        <div class="post">
+          <div class="image"></div>
+          <div class="postTitleContainer"><h2 class="postTitleText">Halloween Party in TMCB 1999</h2></div>
+        </div>
+        <div class="post">
+          <div class="image"></div>
+          <div class="postTitleContainer"><h2 class="postTitleText">Volleyball game @6pm</h2></div>
+        </div>
+        <div class="post">
+          <div class="image"></div>
+          <div class="postTitleContainer"><h2 class="postTitleText">Homecoming Dance tonite!</h2></div>
+        </div>
+        <div class="post">
+          <div class="image"></div>
+          <div class="postTitleContainer"><h2 class="postTitleText">Tyler surprise bday party!</h2></div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
