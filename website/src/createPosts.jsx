@@ -1,5 +1,5 @@
 import React from 'react';
-import { openPost } from "./openPost.jsx"
+import openPost from "./openPost.jsx"
 import { useNavigate } from 'react-router-dom';
 
 export function createPosts(postsArray) {
