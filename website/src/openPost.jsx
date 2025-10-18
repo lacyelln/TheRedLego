@@ -21,18 +21,6 @@ function OpenPost() {
     })
   };
 
-  const handleKeyDown = (e) => {
-      if (e.key === "Enter") {
-        console.log("test");
-        e.preventDefault();
-        if (rsvp) {
-          console.log(rsvp);
-          handleClick(rsvp);
-          window.location.reload();
-        }
-      }
-  };
-
     return (
         <>
         <div className="open-post-details">
@@ -72,7 +60,6 @@ function OpenPost() {
             type="text"
             value={rsvp} 
             onChange={(e) => setRsvp(e.target.value)}
-            onKeyDown={handleKeyDown(rsvp)}
             placeholder="Do you want to RSVP?"
             required
             />
