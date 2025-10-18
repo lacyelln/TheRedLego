@@ -9,7 +9,7 @@ const terminal = readline.createInterface({
 });
 
 
-export async function socialEvents(userPreference) {
+export async function socialEvents(events, userPreference) {
 
     const result = streamText({
       model: openai('gpt-4.1-nano'),
@@ -20,12 +20,7 @@ Return ONLY a valid JSON object in this format:
   "name": string,
   "reason": string
 }
-  “events”: [
-	{ “eventID”: 0, “name”: Watch BYU Basketball Game, “poster”: Jimmy Fallon, “location”: Marriot Center, “date”: 9/15 “time”: 7:00pm }, 
-	{ “eventID”: 1, “name”: Chess Tournament, “poster”: President Reese, “location”: TMCB 109, “date”: 9/15 “time”: 5:00pm }, 
-  { “eventID”: 2, “name”: Heritage Book Club, “poster”: Jackie Dullman, “location”: Heritage Main Building 2nd Floor, “date”: 9/15 “time”: 7:30pm }, 
-	{ “eventID”: 3, “name”: Play in a Volleyball Game, “poster”: Dan Ellis, “location”: Heritage Halls Courts, “date”: 9/16 “time”: 5:00pm }
-    ] 
+  ${events} 
   
   User preferences: ${userPreference}
 Select the single best matching event and explain briefly why as if you were talking to the person.
@@ -48,7 +43,7 @@ Return ONLY the JSON object — no extra text.`
 }
 
 
-export async function academicEvents(userNeeds) {
+export async function academicEvents(events, userNeeds) {
 
     const result = streamText({
       model: openai('gpt-4.1-nano'),
@@ -59,12 +54,7 @@ Return ONLY a valid JSON object in this format:
   "name": string,
   "reason": string
 }
-  “events”: [
-	{ “eventID”: 0, “name”: Math 314 Tutor, “poster”: Jeremy Tilo, “location”: Wilkinson Center 3021, “date”: 9/15 “time”: 12:00pm }, 
-	{ “eventID”: 1, “name”: Math 290 Study Group, “poster”: Sarah Sand, “location”: TMCB 215, “date”: 9/13 “time”: 2:00pm }, 
-  { “eventID”: 2, “name”: Lit 301 Book Review, “poster”: Jackie Dullman, “location”: JFSB B162, “date”: 9/13 “time”: 2:15pm },
-	{ “eventID”: 3, “name”: Calc 2 Midterm Review, “poster”: Math 112 TA's, “location”: JKB 2001, “date”: 9/15 “time”: 3:00pm }
-    ]
+  ${events}
 
      User preferences: ${userNeeds}
 Select the single best matching event for their needs and explain briefly why as if you were talking to the person.
