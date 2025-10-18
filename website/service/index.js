@@ -119,14 +119,15 @@ const httpService = app.listen(port, () => {
 });
 
 apiRouter.post('/academic-response', async (req, res) => {
-  const { events, userInfo } = req.body;
-  try {
+    const { events, userInfo } = req.body;
+    try {
     const result = await academicEvents(events, userInfo);
+    console.log(`result: ${result}`);
     res.json(result);
-  } catch (error) {
+    } catch (error) {
     console.error("Error getting academic event:", error);
     res.status(500).json({ error: 'Internal server error' });
-  }
+    }
 });
 
 
