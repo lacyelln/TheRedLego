@@ -14,8 +14,10 @@ function CreatePosts(postsArray, navigate) {
                     onClick={async () => {
                         try {
                         const response = await fetch(`/api/event/${postJson.eventID}`);
-                        const data = await response.json();
-                        navigate("/post", { state: { data } });
+                        console.log(`response: ${response}`);
+                        const eventData = await response.json();
+                        console.log(`data: ${eventData}`);
+                        navigate("/post", { state: { eventData } });
                         } catch (error) {
                         console.error("Failed to fetch event:", error);
                         }

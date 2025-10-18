@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 
 function OpenPost() {
     const location = useLocation();
-    const {eventData } = location.state || {} // what is || {}?
-    console.log(eventData);
+    const { eventData } = location.state || {} // what is || {}?
+    console.log(`eventData = ${eventData}`);
     
     return (
         <>
@@ -15,7 +15,6 @@ function OpenPost() {
             <div id="openPostTime">{eventData.time}</div>
             <div id="openPostRSVP">{eventData.rsvp}</div>
             <div id="openPostComments">{eventData.comments}</div>
-            <h1>test</h1>
         </>
     )
 }

@@ -31,12 +31,12 @@ apiRouter.get('/event/:id', async (req, res) => {
         res.status(404).send({message: "That event does not exist"});
         return;
     }
+    console.log(`my id = ${id}`);
     let eventObj = dataAccess.getEvent(id);
     res.json(eventObj);
 });
 
 apiRouter.get('/list', async (req, res) => {
-    console.log("received request");
     let eventArr = dataAccess.getAllEvents();
     if (eventArr.length === 0) {
         res.status(404).send({message: "events not found"});
@@ -119,7 +119,7 @@ function initalize() {
         let comments = item.comments;
         let newEvent = Event.createEvent(eventID, name, description, poster, date, time, academic, rsvp, comments);
         dataAccess.addEvent(newEvent, eventID);
-        console.log(JSON.stringify(newEvent));
+        //console.log(JSON.stringify(newEvent));
     }
 }
 

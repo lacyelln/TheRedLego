@@ -3,7 +3,7 @@ class DataAccess {
         this.eventMap = new Map();
     }
 
-    addEvent(event, eventID=null) {
+    addEvent(event, eventID) {
         if (!eventID) {
             this.eventMap.set(event.eventID, event);
         } else {
@@ -16,7 +16,7 @@ class DataAccess {
     }
 
     getEvent(eventID) {
-        console.log("testing");
+        eventID = Number(eventID);
         if (!this.eventMap.has(eventID)) {
             return null;
         }
