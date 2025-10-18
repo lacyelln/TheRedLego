@@ -293,3 +293,65 @@ body {
 .navButton:hover {
   background-color: var(--byu-blue-light);
 }
+
+/* === FORM === */
+#formWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: green; */
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  font-family: "BBH Sans Hegarty";
+}
+
+.twoInputs {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+
+#formHeader {
+  text-align: center;
+  font-family: 'BBH Sans Hegarty';
+  font-size: 60px;
+}
+
+.formThing {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  height: 80px;
+}
+
+.formText {
+  margin-right: 10px;
+  width: 135px;
+}
+input {
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  border: 5px inset var(--byu-blue-light);
+
+}
+
+button {
+  margin-top: 30px;
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  font-family: "BBH Sans Hegarty";
+}
+
+button:hover {
+  background-color: white;
+}
+
+#submitWrapper {
+  text-align: center;
+}
+
