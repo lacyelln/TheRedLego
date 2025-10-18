@@ -127,7 +127,7 @@ const httpService = app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
-router.post('/academic-response', async (req, res) => {
+apiRouter.post('/academic-response', async (req, res) => {
   const { events, userInfo } = req.body;
   try {
     const result = await academicEvents(events, userInfo);
@@ -138,7 +138,7 @@ router.post('/academic-response', async (req, res) => {
   }
 });
 
-router.post('/social-response', async (req, res) => {
+apiRouter.post('/social-response', async (req, res) => {
   const { events, userInfo } = req.body;
   try {
     const result = await socialEvents(events, userInfo);
