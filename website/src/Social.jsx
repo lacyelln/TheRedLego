@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import { getSocialResponse } from "./serviceLayer/llmRouters";
 import CreatePosts from "./createPosts.jsx"
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function Social () {
     const [userInfo, setUserInfo] = useState("");
     const [posts, setPosts] = React.useState(null);
     const navigate = useNavigate();
+    const prev_location = useLocation();
 
     React.useEffect(() => {
         fetch("/api/list")
         .then((response) => response.json())
         .then((postList) => {
             // console.log(JSON.stringify(postList));
-            setPosts(CreatePosts(postList, navigate, false));
+            setPosts(CreatePosts(postList, navigate, false, prev_location));
         })
     }, []);
 
@@ -36,8 +38,8 @@ export default function Social () {
             name: item.Name,
             academic: false,
           }));
-        console.log(JSON.stringify(transformed));         
-        setPosts(CreatePosts(transformed, navigate, false));   
+        // console.log(JSON.stringify(transformed));         
+        setPosts(CreatePosts(transformed, navigate, false, prev_location));   
     } catch (error) {
       console.log(error);
     }  

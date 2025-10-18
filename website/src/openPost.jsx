@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function OpenPost() {
     const location = useLocation();
-    const { eventData } = location.state || {} // what is || {}?
+    const { eventData, prev_location } = location.state || {} // what is || {}?
     const [showRSVP, setShowRSVP] = useState("");
     console.log(`eventData = ${eventData}`);
     const navigate = useNavigate();
@@ -43,7 +43,7 @@ function OpenPost() {
       )}
       </div>
       <div className="return-box">
-        <button onClick={() => navigate('/academic')} className="navButton">RETURN</button>
+        <button onClick={() => navigate(prev_location.pathname)} className="navButton">RETURN</button>
       </div>
 
 

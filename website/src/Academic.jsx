@@ -2,19 +2,21 @@ import React, { useState } from "react";
 import { getAcademicResponse } from "./serviceLayer/llmRouters";
 import CreatePosts from "./createPosts.jsx"
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function Academic() {
 
     const [userInfo, setUserInfo] = useState("");
     const [posts, setPosts] = React.useState(null);
     const navigate = useNavigate();
+    const prev_location = useLocation();
 
     React.useEffect(() => {
         fetch("/api/list")
         .then((response) => response.json())
         .then((postList) => {
             // console.log(JSON.stringify(postList));
-            setPosts(CreatePosts(postList, navigate, true));
+            setPosts(CreatePosts(postList, navigate, true, prev_location));
         })
     }, []);
 
@@ -38,7 +40,7 @@ export default function Academic() {
             academic: true,
           }));
         console.log(JSON.stringify(transformed));         
-        setPosts(CreatePosts(transformed, navigate, true));   
+        setPosts(CreatePosts(transformed, navigate, true, prev_location));   
     } catch (error) {
       console.log(error);
     }  

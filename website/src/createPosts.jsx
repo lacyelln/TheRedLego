@@ -1,14 +1,14 @@
 import React from 'react';
 import OpenPost from "./openPost.jsx"
 
-function CreatePosts(postsArray, navigate, isAcademic) {
+function CreatePosts(postsArray, navigate, isAcademic, prev_location) {
     const postList = []
     for (let i = 0; i < Object.keys(postsArray).length; i++) {
         const postJson = postsArray[i];
         if (postJson.academic != isAcademic) {
             continue;
         }
-        console.log(postJson);
+        // console.log(postJson);
         postList.push(
             <div className="post">
                 <div className="image"></div>
@@ -20,7 +20,7 @@ function CreatePosts(postsArray, navigate, isAcademic) {
                         console.log(`response: ${response}`);
                         const eventData = await response.json();
                         console.log(`data: ${eventData}`);
-                        navigate("/openPost", { state: { eventData } });
+                        navigate("/openPost", { state: { eventData, prev_location } });
                         } catch (error) {
                         console.error("Failed to fetch event:", error);
                         }
