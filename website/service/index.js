@@ -1,10 +1,12 @@
 import express from 'express';
 import Event from 'event';
 import DataAccess from 'database.js';
+import { socialEvents, academicEvents, socialEvents } from './ai';
 
 const app = express();
 const dataAccess = new DataAccess();
 
+const API_BASE = "http://localhost:3000";
 const port = 3000;
 
 app.use(express.json());
@@ -115,3 +117,14 @@ function initalize() {
 const httpService = app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
+
+export async function getSocialResponse(userInfo){
+    const response = await fetch(`${API_BASE}/event/names`);
+    const socialEvent = socialEvents(response.social, userInfo);
+    return socialEvent;
+}
+
+export async function getAcademicResponse(userInfo){
+    const response = await fetch(`${API_BASE}/event/names`);
+    const academicEvent = academicEvents(response.academic, userInfo);
+}
