@@ -42,7 +42,13 @@ apiRouter.get('/event/names', async (req, res) => {
     console.log("Social:" + socialNames);
     console.log("Academic:" + academicNames);
     res.send({ social: socialNames, academic: academicNames })
-    
+});
+
+apiRouter.put('/event/rsvp', async (req, res) => {
+    let eventID = req.body?.eventID;
+    let Event = dataAccess.getEvent(eventID);
+    let person = req.body?.person;
+    Event.rsvp.push(person);
 });
 
 apiRouter.post('/event/create', async (req, res) => {
