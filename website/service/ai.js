@@ -9,8 +9,6 @@ const terminal = readline.createInterface({
 });
 
 
-//const userPreference = "basketball, volleyball, exercise";
-
 export async function socialEvents(userPreference) {
 
     const result = streamText({
@@ -43,14 +41,14 @@ Return ONLY the JSON object — no extra text.`
   const jsonStart = fullResponse.indexOf('{');
   const jsonEnd = fullResponse.lastIndexOf('}');
   const jsonString = fullResponse.slice(jsonStart, jsonEnd + 1);
-
-  process.stdout.write(jsonString);
-  return jsonString;
+  const data = JSON.parse(jsonString);
+  process.stdout.write(JSON.stringify(data));
+  return data;
 
 }
 
 
-async function academicEvents(userNeeds) {
+export async function academicEvents(userNeeds) {
 
     const result = streamText({
       model: openai('gpt-4.1-nano'),
@@ -84,8 +82,9 @@ Return the event selected in ONE JSON object — no extra text.
   const jsonString = fullResponse.slice(jsonStart, jsonEnd + 1);
   const data = JSON.parse(jsonString);
   process.stdout.write(JSON.stringify(data));
+  return data;
 }
 
 
-academicEvents("I'm looking for a tutor for my math class");
+
 
