@@ -7,9 +7,31 @@ function OpenPost() {
     const location = useLocation();
     const { eventData, prev_location } = location.state || {} // what is || {}?
     const [showRSVP, setShowRSVP] = useState("");
+    const [ rsvp, setRsvp ] = useState("");
     console.log(`eventData = ${eventData}`);
     const navigate = useNavigate();
     
+  async function handleClick(rsvp){
+    fetch("/api/event/rsvp", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({event: EventData.eventID ,person: rsvp})
+    })
+
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+        e.preventDefault();
+        if(rsvp){
+           handleClick(rsvp);
+        }
+       
+        }
+    };
+
     return (
         <>
         <div className="open-post-details">
@@ -42,6 +64,17 @@ function OpenPost() {
       ) : (
         <p><strong>RSVP:</strong> {eventData.rsvp?.length || 0} attending</p>
       )}
+      </div>
+      <div>
+        <input 
+            type="text"
+            value={rsvp} 
+            onChange={(e) => setRsvp(e.target.value)}
+            onKeyDown={handleKeyDown(rsvp)}
+            placeholder="Do you want to RSVP?"
+            required
+            />
+            <button onClick={handleClick(rsvp)}></button>
       </div>
       <div className="return-box">
         <button onClick={() => navigate(prev_location.pathname)} className="navButton">RETURN</button>
