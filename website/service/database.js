@@ -59,9 +59,23 @@ class DataAccess {
         return eventArr;
     }
 
-    getEventNames() {
+    getEventNamesAcademic() {
         let eventArr = [];
-        this.eventMap.forEach((value, key) => eventArr.push({eventID: value.eventID, name: value.name}))
+        this.eventMap.forEach((value, key) => {
+                if (value.academic) {
+                    eventArr.push({eventID: value.eventID, name: value.name});
+                }
+        });
+        return eventArr;
+    }
+
+    getEventNamesSocial() {
+        let eventArr = [];
+        this.eventMap.forEach((value, key) => {
+                if (!value.academic) {
+                    eventArr.push({eventID: value.eventID, name: value.name});
+                }
+        });
         return eventArr;
     }
 }

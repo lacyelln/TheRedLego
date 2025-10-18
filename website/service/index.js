@@ -50,11 +50,12 @@ apiRouter.post('/event/create', async (req, res) => {
     let poster = req.body?.poster;
     let date = req.body?.date;
     let time = req.body?.time;
+    let academic = req.body?.academic;
     if (!name || !description || !poster || !date || !time) {
         res.status(400).send({message: "Make sure all fields are provided"});
         return;
     }
-    let newEvent = new Event(eventID, name, description, poster, date, time);
+    let newEvent = new Event(eventID, name, description, poster, date, time, academic);
     dataAccess.addEvent(newEvent, eventID);
     res.send(JSON.stringify(newEvent));
 });
@@ -102,9 +103,10 @@ function initalize() {
         let poster = item.poster;
         let date = item.date;
         let time = item.time;
+        let academic = item.academic;
         let rsvp = item.rsvp;
         let comments = item.comments;
-        let newEvent = Event.createEvent(eventID, name, description, poster, date, time, rsvp, comments);
+        let newEvent = Event.createEvent(eventID, name, description, poster, date, time, academic, rsvp, comments);
         dataAccess.addEvent(newEvent, eventID);
         console.log(JSON.stringify(newEvent));
     }

@@ -6,6 +6,7 @@
         "poster": "Jack",
         "date": "July 67th",
         "time": "13 Oclock",
+        "academic": false,
         "rsvp": ["Lacy", "Jack"],
         "comments": ["Can't wait!"]
     }
