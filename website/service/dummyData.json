@@ -31,5 +31,16 @@
         "academic": true,
         "rsvp": ["Jared"],
         "comments": ["You're a life saver!"]
+    },
+    {
+        "eventID": 4,
+        "name": "Lit 301 study group!",
+        "description": "Stress about the midterm if anyone wants to study with me in the library! Room 312",
+        "poster": "Kara",
+        "date": "Tuesday 9/13",
+        "time": "2:15pm",
+        "academic": true,
+        "rsvp": ["Jared", "Jonny", "Timmy"],
+        "comments": ["You're a life saver!"]
     }
 ]

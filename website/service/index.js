@@ -50,6 +50,8 @@ apiRouter.get('/list', async (req, res) => {
 apiRouter.get('/event/names', async (req, res) => {
     let socialNames = dataAccess.getEventNamesSocial();
     let academicNames = dataAccess.getEventNamesAcademic();
+    console.log("Social:" + socialNames);
+    console.log("Academic:" + academicNames);
     res.send({ social: socialNames, academic: academicNames })
     
 });
@@ -137,6 +139,8 @@ apiRouter.post('/academic-response', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+
 
 apiRouter.post('/social-response', async (req, res) => {
   const { events, userInfo } = req.body;

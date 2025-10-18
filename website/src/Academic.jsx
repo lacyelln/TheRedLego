@@ -22,7 +22,7 @@ export default function Academic() {
     async function handleClick(userInfo){
     try {
         const result = await getAcademicResponse(userInfo);
-        console.log(result);
+        console.log("result" + result);
         console.log(JSON.stringify(result));
         setUserInfo("");
 
