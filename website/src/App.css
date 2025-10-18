@@ -123,3 +123,111 @@ body {
   font-size: 2.5rem;
   color: var(--byu-white);  
 }
+
+.academic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.academic h2 {
+  font-size: 2.5rem;
+  color: var(--byu-white); /* assuming you've set BYU blue as a CSS variable */
+  text-align: center;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+.academic input {
+  width: 100%;
+  max-width: 600px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--byu-blue);
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin: 2rem;
+}
+
+/* === Posts Container === */
+.display-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white for readability */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* === Individual Post Styling === */
+.post {
+  background-color: #ffffff;
+  border-left: 6px solid var(--byu-blue);
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.post:hover {
+  transform: translateY(-2px);
+}
+
+/* === Post Title === */
+.post h2 {
+  color: var(--byu-blue);
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+/* === Post Body (optional) === */
+.post p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Open Post Section */
+.open-post {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  color: var(--byu-white);
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+.open-post-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.open-post-description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 0rem;
+  text-align: center;
+}
+
+.open-post-details {
+  background-color: rgba(255, 255, 255, 0.9); /* 80% opacity */
+  color: var(--byu-blue); /* text color */
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  max-width: 600px; /* or whatever fits your design */
+  margin: 1rem auto; /* center horizontally, add vertical space */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.open-post-details p {
+  margin: 0.6rem 0;
+}

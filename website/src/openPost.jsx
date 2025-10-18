@@ -8,13 +8,17 @@ function OpenPost() {
     
     return (
         <>
-            <div id="openPostTitle">{eventData.name}</div>
-            <div id="openPostDesc">{eventData.description}</div>
-            <div id="openPostPoster">{eventData.nameOfPoster}</div>
-            <div id="openPostDate">{eventData.date}</div>
-            <div id="openPostTime">{eventData.time}</div>
-            <div id="openPostRSVP">{eventData.rsvp}</div>
-            <div id="openPostComments">{eventData.comments}</div>
+        <div className="open-post">
+            <h1 className="open-post-title">{eventData.name}</h1> 
+         </div>
+
+        <div className="open-post-details">
+        <p><strong>Details: </strong>{eventData.description}</p>
+        <p><strong>Date:</strong> {eventData.date}</p>
+        <p><strong>Time:</strong> {eventData.time}</p>
+        </div>
+        
+
         </>
     )
 }
