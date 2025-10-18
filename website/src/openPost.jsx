@@ -47,7 +47,7 @@ function OpenPost() {
       {/* RSVP list toggle */}
       {showRSVP ? (
         <div className="rsvp-list">
-          <strong>RSVP:</strong>
+          <strong id="rsvpTitle">RSVP:</strong>
           <ul>
             {myRsvp && myRsvp.length > 0 ? (
               myRsvp.map((name, idx) => <li key={idx}>{name}</li>)
