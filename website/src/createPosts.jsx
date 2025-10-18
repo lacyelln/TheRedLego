@@ -5,10 +5,12 @@ function CreatePosts(postsArray, navigate, isAcademic, prev_location) {
     const postList = []
     for (let i = 0; i < Object.keys(postsArray).length; i++) {
         const postJson = postsArray[i];
-        if (postJson.academic != isAcademic) {
+        console.log(`${i}: ${JSON.stringify(postJson)}`);
+        if (Boolean(postJson.academic) != isAcademic) {
+            console.log(`${postJson.academic} vs ${isAcademic}`)
+            console.log(i);
             continue;
         }
-        // console.log(postJson);
         postList.push(
             <div className="post">
                 <div className="image"></div>
