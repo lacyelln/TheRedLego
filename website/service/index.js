@@ -1,9 +1,6 @@
 import express from 'express';
-import Event from './Event.js';
-import DataAccess from './database.js';
-import dummyData from './dummyData.json' with {type: "json"};
-
-var curID = 1;
+import Event from 'event';
+import DataAccess from 'database.js';
 
 const app = express();
 const dataAccess = new DataAccess();
@@ -41,6 +38,7 @@ apiRouter.get('/event/list', async (req, res) => {
 
 apiRouter.get('/event/names', async (req, res) => {
     let eventNames = dataAccess.getEventNames();
+    
 });
 
 apiRouter.post('/event/create', async (req, res) => {
