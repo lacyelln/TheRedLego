@@ -127,4 +127,5 @@ export async function getSocialResponse(userInfo){
 export async function getAcademicResponse(userInfo){
     const response = await fetch(`${API_BASE}/event/names`);
     const academicEvent = academicEvents(response.academic, userInfo);
+    return academicEvent;
 }
