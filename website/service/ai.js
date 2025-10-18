@@ -14,17 +14,12 @@ export async function socialEvents(events, userPreference) {
     const result = streamText({
       model: openai('gpt-4.1-nano'),
       prompt: ` You are a helpful assistant. You will be given a list of events and user preferences.
-Return ONLY a valid JSON object in this format:
-{
-  "eventID": number,
-  "name": string,
-  "reason": string
-}
+Return a list of event Id's in relevance order. The first being most relevant to the user preferences, last id being least relevant.
+ex: [4, 1, 3, 2], dont include any other information. Don't lock the body.
   ${events} 
   
   User preferences: ${userPreference}
-Select the single best matching event and explain briefly why as if you were talking to the person.
-Return ONLY the JSON object — no extra text.`
+Return ONLY the list of relevant event id's`
     });
 
     let fullResponse = '';
@@ -48,17 +43,12 @@ export async function academicEvents(events, userNeeds) {
     const result = streamText({
       model: openai('gpt-4.1-nano'),
       prompt: ` You are a helpful assistant. A user needs help finding an event that will help them the most based on their needs.
-Return ONLY a valid JSON object in this format:
-{
-  "eventID": number,
-  "name": string,
-  "reason": string
-}
+Return a list of event Id's in relevance order. The first being most relevant to the user preferences, last id being least relevant.
+ex: [4, 1, 3, 2], dont include any other information. Don't lock the body.
   ${events}
 
      User preferences: ${userNeeds}
-Select the single best matching event for their needs and explain briefly why as if you were talking to the person.
-Return the event selected in ONE JSON object — no extra text. 
+Return ONLY the list of relevant event id's
 `
     });
 

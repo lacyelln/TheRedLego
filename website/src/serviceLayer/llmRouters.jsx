@@ -12,8 +12,10 @@ export async function getAcademicResponse(userInfo) {
   const res = await fetch(`${API_BASE}/api/academic-response`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ events: allEvents.academic, userInfo })
+    body: JSON.stringify({ events: allEvents.academic, userInfo: userInfo })
   });
+
+  console.log(res.body);
 
   const data = await res.json();
   return data;
@@ -28,7 +30,7 @@ export async function getSocialResponse(userInfo) {
   const res = await fetch(`${API_BASE}/api/social-response`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ events: allEvents.social, userInfo })
+    body: JSON.stringify({ events: allEvents.social, userInfo: userInfo })
   });
 
   const data = await res.json();
