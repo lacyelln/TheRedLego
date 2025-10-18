@@ -1,7 +1,7 @@
 import express from 'express';
 import Event from 'event';
 import DataAccess from 'database.js';
-import { socialEvents, academicEvents, socialEvents } from './ai';
+import { socialEvents, academicEvents } from './ai';
 import Event from './Event.js';
 import DataAccess from './database.js';
 import dummyData from './dummyData.json' with {type: "json"};
