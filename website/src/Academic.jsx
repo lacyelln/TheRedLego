@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { getAcademicResponse } from "../service";
+import { getAcademicResponse } from "./serviceLayer/llmRouters";
 
 export default function Academic() {
 
