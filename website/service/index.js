@@ -1,5 +1,5 @@
 import express from 'express';
-import { socialEvents, academicEvents } from './ai.js';
+import { searchEvents } from './ai.js';
 import Event from './Event.js';
 import DataAccess from './database.js';
 import dummyData from './dummyData.json' with {type: "json"};
@@ -118,10 +118,10 @@ const httpService = app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
-apiRouter.post('/academic-response', async (req, res) => {
+apiRouter.post('/llm-response', async (req, res) => {
     const { events, userInfo } = req.body;
     try {
-    const result = await academicEvents(events, userInfo);
+    const result = await searchEvents(events, userInfo);
     console.log(`result: ${result}`);
     res.json(result);
     } catch (error) {
@@ -130,18 +130,6 @@ apiRouter.post('/academic-response', async (req, res) => {
     }
 });
 
-
-
-apiRouter.post('/social-response', async (req, res) => {
-  const { events, userInfo } = req.body;
-  try {
-    const result = await socialEvents(events, userInfo);
-    res.json(result);
-  } catch (error) {
-    console.error("Error getting social event:", error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
 
 apiRouter.get('/event/:id', async (req, res) => {
     let id = req.params.id;

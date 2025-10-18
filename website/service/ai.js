@@ -9,60 +9,63 @@ const terminal = readline.createInterface({
 });
 
 
-export async function socialEvents(events, userPreference) {
 
-    const result = streamText({
-      model: openai('gpt-4.1-nano'),
-      prompt: ` You are a helpful assistant. You will be given a list of events and user preferences.
-Return a list of event Id's in relevance order. The first being most relevant to the user preferences, last id being least relevant.
-ex: [4, 1, 3, 2], dont include any other information. Don't lock the body.
-  ${events} 
-  
-  User preferences: ${userPreference}
-Return ONLY the list of relevant event id's`
-    });
+export async function searchEvents(events, userNeeds) {
+  // Build formatted string of event list
+  const formattedEvents = events
+    .map(e => `ID: ${e.eventID}, Name: ${e.name}`)
+    .join('\n');
 
-    let fullResponse = '';
-    for await (const delta of result.textStream) {
-      fullResponse += delta;
+  // Construct the LLM prompt
+  const prompt = `
+You are a helpful assistant. A user is looking for the most relevant academic event from a list.
 
-    }
+You will be given a list of existing events and a user preference.
 
-  const jsonStart = fullResponse.indexOf('{');
-  const jsonEnd = fullResponse.lastIndexOf('}');
-  const jsonString = fullResponse.slice(jsonStart, jsonEnd + 1);
-  const data = JSON.parse(jsonString);
-  process.stdout.write(JSON.stringify(data));
-  return data;
+Your task is to return the full list of events, sorted by how well each event matches the user's preference.
+Only reorder the events — do not change, remove, or add anything.
 
-}
+Respond with the same array of JSON objects, in relevance order. Return ONLY the JSON array and nothing else.
 
+Events:
+${formattedEvents}
 
-export async function academicEvents(events, userNeeds) {
+User preferences: ${userNeeds}
+`;
 
-    const result = streamText({
-      model: openai('gpt-4.1-nano'),
-      prompt: ` You are a helpful assistant. A user needs help finding an event that will help them the most based on their needs.
-Return a list of event Id's in relevance order. The first being most relevant to the user preferences, last id being least relevant.
-ex: [4, 1, 3, 2], dont include any other information. Don't lock the body.
-  ${events}
+  // Send prompt to LLM
+  const result = await streamText({
+    model: openai('gpt-4.1-nano'),
+    prompt: prompt.trim()
+  });
 
-     User preferences: ${userNeeds}
-Return ONLY the list of relevant event id's
-`
-    });
+  // Collect the streamed output
+  let fullResponse = '';
+  process.stdout.write('\nAssistant: ');
+  for await (const delta of result.textStream) {
+    fullResponse += delta;
+  }
 
-    let fullResponse = '';
-    process.stdout.write('\nAssistant: ');
-    for await (const delta of result.textStream) {
-      fullResponse += delta;
-    }
-  const jsonStart = fullResponse.indexOf('{');
-  const jsonEnd = fullResponse.lastIndexOf('}');
-  const jsonString = fullResponse.slice(jsonStart, jsonEnd + 1);
-  const data = JSON.parse(jsonString);
-  process.stdout.write(JSON.stringify(data));
-  return data;
+  // Extract JSON array from output
+  const jsonStart = fullResponse.indexOf('[');
+  const jsonEnd = fullResponse.lastIndexOf(']');
+  const jsonString = fullResponse.slice(jsonStart, jsonEnd + 1).trim();
+
+  if (!jsonString || jsonStart === -1 || jsonEnd === -1) {
+    console.error("LLM response was not valid JSON array:", fullResponse);
+    throw new Error("❌ LLM did not return a valid JSON array.");
+  }
+
+  try {
+    const data = JSON.parse(jsonString);
+    console.log("✅ Parsed LLM result:", JSON.stringify(data));
+    return data;
+  } catch (err) {
+    console.error("❌ Error parsing LLM response:", err);
+    console.error("Full response:", fullResponse);
+    throw new Error("Failed to parse LLM response.");
+  }
+
 }
 
 

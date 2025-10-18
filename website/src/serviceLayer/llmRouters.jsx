@@ -9,7 +9,7 @@ export async function getAcademicResponse(userInfo) {
     throw new Error("No academic events returned from API");
     }
 
-  const res = await fetch(`${API_BASE}/api/academic-response`, {
+  const res = await fetch(`${API_BASE}/api/llm-response`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ events: allEvents.academic, userInfo: userInfo })
@@ -27,7 +27,7 @@ export async function getSocialResponse(userInfo) {
   const eventNamesResponse = await fetch(`${API_BASE}/api/event/names`);
   const allEvents = await eventNamesResponse.json();
 
-  const res = await fetch(`${API_BASE}/api/social-response`, {
+  const res = await fetch(`${API_BASE}/api/llm-response`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ events: allEvents.social, userInfo: userInfo })
