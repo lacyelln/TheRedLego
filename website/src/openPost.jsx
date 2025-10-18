@@ -65,17 +65,19 @@ function OpenPost() {
       ) : (
         <p><strong>RSVP:</strong> {eventData.rsvp?.length || 0} attending</p>
       )}
-      </div>
-      <div>
+      
+      <div className="rsvp">
+        <p>RSVP Here:</p>
         <input 
             type="text"
             value={rsvp} 
             onChange={(e) => setRsvp(e.target.value)}
             onKeyDown={handleKeyDown(rsvp)}
-            placeholder="Do you want to RSVP?"
+            placeholder="Enter your name"
             required
             />
-            <button onClick={handleClick(rsvp)}></button>
+            <button className="rsvp-submit" onClick={handleClick(rsvp)}>RSVP</button>
+      </div>
       </div>
       <div className="return-box">
         <button onClick={() => navigate(prev_location.pathname)} className="navButton">RETURN</button>

@@ -232,6 +232,43 @@ body {
   text-align: center;
 }
 
+.rsvp {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.rsvp input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.rsvp input:focus {
+  border-color: var(--byu-blue); /* or any primary color */
+  box-shadow: 0 0 0 2px rgba(0, 78, 152, 0.2); /* subtle focus ring */
+}
+
+.rsvp-submit {
+  padding: 0.5rem 1rem;
+  background-color: var(--byu-blue);
+  color: var(--byu-white);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rsvp-submit:hover {
+  background-color: var(--byu-blue-light);
+}
+
 
 
 /* rsp box */
