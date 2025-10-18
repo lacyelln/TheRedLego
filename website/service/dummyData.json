@@ -1,0 +1,12 @@
+[
+    {
+        "eventID": 1,
+        "name": "Tyler's surprise party",
+        "description": "It's a surprise party!",
+        "poster": "Jack",
+        "date": "July 67th",
+        "time": "13 Oclock",
+        "rsvp": ["Lacy", "Jack"],
+        "comments": ["Can't wait!"]
+    }
+]
