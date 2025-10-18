@@ -1,17 +1,21 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { getAcademicResponse } from "./serviceLayer/llmRouters";
+import CreatePosts from "./createPosts.jsx"
+import { useNavigate } from "react-router-dom";
 
 export default function Academic() {
 
     const [userInfo, setUserInfo] = useState("");
-    const [posts, getPosts] = React.useState(null);
+    const [posts, setPosts] = React.useState(null);
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         fetch("/api/list")
         .then((response) => response.json())
         .then((postList) => {
             console.log(JSON.stringify(postList));
-            getPosts(CreatePosts(postList, navigate, true));
+            setPosts(CreatePosts(postList, navigate, true));
+            console.log(posts);
         })
     }, []);
 
@@ -42,11 +46,10 @@ export default function Academic() {
     return (
         <>
         <div className="academic">
-            <p>Describe what academic activities you're looking for around campus!</p>
+            <h2>Describe what academic activities you're looking for around campus!</h2>
             <input 
             type="text"
             value={userInfo} 
-            ref={inputRef}
             onChange={(e) => setUserInfo(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="I am struggling in Math 290, I need help studying."
@@ -54,12 +57,15 @@ export default function Academic() {
             />
 
         </div>
+
+        <div id="navbar">
         <div className="flex">
           <button onClick={() => navigate('/post')} className="navButton">POST</button>
-          <button onClick={() => navigate('/academic')} className="navButton">ACADEMIC</button>
+          <button onClick={() => navigate('/social')} className="navButton">SOCIAL</button>
+        </div>
         </div>
 
-        <div>
+        <div className="display-posts">
             {posts}
         </div>
         </>
