@@ -29,8 +29,8 @@ body {
 
 .overlay {
   background-color: var(--byu-blue); 
-  height: 350px;  /* full viewport height */
-  width: 1000px;
+  height: 300px;  /* full viewport height */
+  width: 700px;
   display: flex;
   flex-direction: column;
   justify-content: center;  /* vertically center content */
@@ -38,6 +38,7 @@ body {
   padding: 2rem;
   box-sizing: border-box;
   text-align: center;
+  border-radius: 1rem;
 }
 
 
@@ -112,12 +113,10 @@ body {
 }
 
 .banner {
-  background-color: var(--byu-blue);
   color: var(--byu-white);
   padding: 1.5rem 1rem;
   text-align: center;
-  border-radius: 6px;
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
 
   width: 90%;       /* Makes it 90% of its container’s width */
   max-width: 1000px; /* Optional: cap max width */
@@ -127,7 +126,7 @@ body {
 
 .banner h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: var(--byu-white);  
 }
 
