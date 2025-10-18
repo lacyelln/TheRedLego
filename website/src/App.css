@@ -342,7 +342,7 @@ input {
 
 }
 
-#submitButton {
+#createButton {
   margin-top: 30px;
   width: 200px;
   height: 40px;
@@ -358,7 +358,12 @@ button:hover {
   text-align: center;
 }
 
-#checkboxes {
+.radio {
+  width: 40px;
   position: relative;
-  left: 130px;
+  top: 15px;
+  left: 10px;
+}
+label {
+  width: 240px;
 }
