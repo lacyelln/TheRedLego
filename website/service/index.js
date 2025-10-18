@@ -37,7 +37,9 @@ apiRouter.get('/event/list', async (req, res) => {
 });
 
 apiRouter.get('/event/names', async (req, res) => {
-    let eventNames = dataAccess.getEventNames();
+    let socialNames = dataAccess.getEventNamesSocial();
+    let academicNames = dataAccess.getEventNamesAcademic();
+    res.send({ social: socialNames, academic: academicNames })
     
 });
 
