@@ -197,6 +197,9 @@ body {
   margin: 2rem auto;
   padding: 1.5rem 2rem;
   color: var(--byu-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
 }
 
@@ -214,20 +217,79 @@ body {
   text-align: center;
 }
 
+
+
+/* rsp box */
 .open-post-details {
-  background-color: rgba(255, 255, 255, 0.9); /* 80% opacity */
-  color: var(--byu-blue); /* text color */
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--byu-blue);
   padding: 1.5rem 2rem;
   border-radius: 8px;
-  max-width: 600px; /* or whatever fits your design */
-  margin: 1rem auto; /* center horizontally, add vertical space */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+  max-width: 600px;
+  margin: 1rem auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: left;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.6;
+  position: relative;
 }
 
-.open-post-details p {
-  margin: 0.6rem 0;
+/* Header for title and button */
+.rsvp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Button styling */
+.rsvp-toggle {
+  background-color: var(--byu-blue);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.rsvp-toggle:hover {
+  background-color: var(--byu-blue-light);
+}
+
+/* RSVP List styling */
+.rsvp-list ul {
+  margin: 0.5rem 0 1rem 1rem;
+  padding-left: 1rem;
+  list-style-type: disc;
+}
+
+.rsvp-list li {
+  margin: 0.3rem 0;
+}
+
+.return-box {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem auto;
+  max-width: 600px;
+  padding-right: 2rem;
+}
+
+/* Reuse your existing navButton style */
+.navButton {
+  background-color: var(--byu-blue);
+  color: var(--byu-white);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: var(--byu-blue-light);
 }
