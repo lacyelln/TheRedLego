@@ -13,7 +13,7 @@ function CreatePosts(postsArray, navigate, isAcademic, prev_location) {
         }
         postList.push(
             <div className="post">
-                <div className="image"></div>
+                
                 <div className="postTitleContainer">
                     <h2 className="postTitleText"
                     onClick={async () => {

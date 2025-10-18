@@ -8,6 +8,7 @@ export default function Academic() {
 
     const [userInfo, setUserInfo] = useState("");
     const [posts, setPosts] = React.useState(null);
+    const [numPosts, setNumPosts] = React.useState(0);
     const navigate = useNavigate();
     const prev_location = useLocation();
 
@@ -15,9 +16,10 @@ export default function Academic() {
         fetch("/api/list")
         .then((response) => response.json())
         .then((postList) => {
-            // console.log(JSON.stringify(postList));
-            setPosts(CreatePosts(postList, navigate, true, prev_location));
-        })
+          const renderedPosts = CreatePosts(postList, navigate, true, prev_location);
+          setPosts(renderedPosts);
+          setNumPosts(renderedPosts.length); // Now you're counting only the rendered posts
+        });
     }, []);
 
     React.useEffect(() => {
@@ -71,10 +73,14 @@ export default function Academic() {
             />
 
         </div>
+        {/* <div>
+         
+        </div> */}
 
         <div id="navbar">
         <div className="flex">
-          <button onClick={() => navigate('/post')} className="navButton">POST</button>
+           <p>There are currently {numPosts} events posted!</p>
+          <button onClick={() => navigate('/post')} className="navButton">MAKE A POST</button>
           <button onClick={() => navigate('/social')} className="navButton">SOCIAL</button>
         </div>
         </div>
