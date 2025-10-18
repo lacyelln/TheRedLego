@@ -70,7 +70,8 @@ Return ONLY a valid JSON object in this format:
 
      User preferences: ${userNeeds}
 Select the single best matching event for their needs and explain briefly why as if you were talking to the person.
-Return ONLY the JSON object — no extra text.`
+Return the event selected and then the other json objects (do not change them) that you did NOT select in relevance order to the needs in ONE JSON object — no extra text.
+Format it with a selectedEvent and otherEvents part of the JSON object`
     });
 
     let fullResponse = '';
@@ -83,8 +84,21 @@ Return ONLY the JSON object — no extra text.`
   const jsonString = fullResponse.slice(jsonStart, jsonEnd + 1);
 
   process.stdout.write(jsonString);
-  return jsonString;
+
+    try {
+    const data = JSON.parse(jsonString);
+
+    if (!data.selectedEvent || !Array.isArray(data.otherEvents)) {
+      throw new Error("Invalid response: missing selectedEvent or otherEvents array");
+    }
+
+    return data.rankedEvents;
+  } catch (err) {
+    console.error("Failed to parse model output:", fullResponse);
+    throw err;
+  }
 }
+
 
 academicEvents("Math, Studying, Math 290");
 
