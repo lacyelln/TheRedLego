@@ -1,11 +1,29 @@
-export async function getSocialResponse(userInfo){
-    const response = await fetch(`${API_BASE}/event/names`);
-    const socialEvent = socialEvents(response.social, userInfo);
-    return socialEvent;
+const API_BASE = "http://localhost:4000";
+
+export async function getAcademicResponse(userInfo) {
+  const eventNamesResponse = await fetch(`${API_BASE}/api/event/names`);
+  const allEvents = await eventNamesResponse.json();
+
+  const res = await fetch(`${API_BASE}/api/academic-response`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ events: allEvents.academic, userInfo })
+  });
+
+  const data = await res.json();
+  return data;
 }
 
-export async function getAcademicResponse(userInfo){
-    const response = await fetch(`${API_BASE}/event/names`);
-    const academicEvent = academicEvents(response.academic, userInfo);
-    return academicEvent;
+export async function getSocialResponse(userInfo) {
+  const eventNamesResponse = await fetch(`${API_BASE}/api/event/names`);
+  const allEvents = await eventNamesResponse.json();
+
+  const res = await fetch(`${API_BASE}/api/social-response`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ events: allEvents.social, userInfo })
+  });
+
+  const data = await res.json();
+  return data;
 }
