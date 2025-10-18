@@ -9,6 +9,13 @@ class Event {
         this.rsvp = [];
         this.comments = [];
     }
+
+    static createEvent(eventID, name, description, poster, date, time, rsvp, comments) {
+        let obj = new Event(eventID, name, description, poster, date, time);
+        obj.rsvp = rsvp;
+        obj.comments = comments;
+        return obj;
+    }
 }
 
 export default Event;

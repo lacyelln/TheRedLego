@@ -1,6 +1,7 @@
 import express from 'express';
 import Event from './Event.js';
 import DataAccess from './database.js';
+import dummyData from './dummyData.json' with {type: "json"};
 
 var curID = 1;
 
@@ -11,6 +12,8 @@ const port = 3000;
 
 app.use(express.json());
 app.use(express.static("public"));
+
+initalize();
 
 var apiRouter = express.Router();
 app.use('/api', apiRouter);
@@ -88,6 +91,23 @@ function createEventID() {
         return id;
     }
     return createEventID();
+}
+
+function initalize() {
+    for (let i = 0; i < dummyData.length; i++) {
+        let item = dummyData[i];
+        let eventID = item.eventID;
+        let name = item.name;
+        let description = item.description;
+        let poster = item.poster;
+        let date = item.date;
+        let time = item.time;
+        let rsvp = item.rsvp;
+        let comments = item.comments;
+        let newEvent = Event.createEvent(eventID, name, description, poster, date, time, rsvp, comments);
+        dataAccess.addEvent(newEvent, eventID);
+        console.log(JSON.stringify(newEvent));
+    }
 }
 
 const httpService = app.listen(port, () => {
