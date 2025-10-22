@@ -21,44 +21,44 @@ CougsConnect is a campus-focused social media platform built during a 48-hour ha
 ### Homepage
 The landing page where users can view recent posts and navigate to different sections of the platform.
 
-![Homepage](public/images/homepage.png)
+![Homepage](website/public/images/homepage.png)
 
 ---
 
 ### Before AI Search
 The unfiltered feed showing all posts before AI relevance filtering is applied.
 
-![Before AI Search](public/images/social_before_ai_search.png)
+![Before AI Search](website/public/images/social_before_ai_search.png)
 
 ---
 
 ### After AI Search
 The feed after AI filtering, showing only the most relevant posts based on user interests.
 
-![After AI Search](public/images/social_after_ai_search.png)
+![After AI Search](website/public/images/social_after_ai_search.png)
 
 ---
 
 ### Academic Page
 A dedicated section for academic-related events and announcements.
 
-![Academic Page](public/images/academic_page.png)
+![Academic Page](website/public/images/academic_page.png)
 
 ---
 ### Expanded Post
 An event post where the RSVP deadline has passed or capacity is full.
 
-![Open Post – RSVP Closed](public/images/open_post_closed_rsvp.png)
+![Open Post – RSVP Closed](website/public/images/open_post_closed_rsvp.png)
 
 ---
 ### Expanded Post with RSVP information shown
 An event post where users can view details and RSVP to participate.
 
-![Open Post – RSVP Open](public/images/open_post_open_rsvp.png)
+![Open Post – RSVP Open](website/public/images/open_post_open_rsvp.png)
 
 ---
 
 ### Create Post
 The interface for users to create and publish new events or announcements.
 
-![Create Post](public/images/create_post_page.png)
+![Create Post](website/public/images/create_post_page.png)
